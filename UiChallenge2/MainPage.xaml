@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+			 xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+			 xmlns:icon="clr-namespace:UiChallenge2.Icons"
+			 xmlns:uichallenge2="clr-namespace:UiChallenge2"
+			 mc:Ignorable="d"
+			 BackgroundColor="#02B3C5"
+             x:Class="UiChallenge2.MainPage">
+	
+	<ContentPage.BindingContext>
+		<uichallenge2:MainViewModel/>
+	</ContentPage.BindingContext>
+
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="100"/>
+		</Grid.RowDefinitions>
+
+		<pancakeview:PancakeView CornerRadius="0,0,40,40">
+			<Grid>
+
+				<forms:CachedImage Source="back1.png"
+									Aspect="AspectFill"/>
+
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<Label FontFamily="{StaticResource MaterialFontFamily}"
+						   Text="{x:Static icon:IconFont.Earth}"
+						   FontSize="40"
+						   Grid.Row="0"
+							Margin="0,30,0,0"
+						   HorizontalOptions="Center"
+						   VerticalOptions="Start"
+						   TextColor="White"/>
+
+					<StackLayout Orientation="Vertical"
+							 Grid.Row="1"
+							 VerticalOptions="Center"
+							 HorizontalOptions="Center">
+						<Label Text="Welcome"
+					   TextColor="White"
+					   FontSize="22"
+					   VerticalOptions="Center"
+						    HorizontalOptions="Center"
+					   FontAttributes="Bold"/>
+
+						<Label Text="to Lonely Planet, we are the heart of globetrottling."
+						   TextColor="White"
+						   Opacity="0.5"
+						   FontSize="10"
+						   FontAttributes="Bold"
+						   HorizontalOptions="Center"
+							VerticalOptions="Center"/>
+					</StackLayout>
+
+					<StackLayout Orientation="Vertical"
+								 Grid.Row="2"
+								 Margin="0,20,0,0">
+						<Label Text="LOG IN OR CREATE A NEW ACCOUNT"
+						   TextColor="White"
+						   Opacity="0.5"
+						   FontSize="8"
+						   FontAttributes="Bold"
+						   HorizontalOptions="Center"
+							VerticalOptions="Center"/>
+
+						<Label FontFamily="{StaticResource MaterialFontFamily}"
+						   Text="{x:Static icon:IconFont.ChevronDown}"
+						   FontSize="17"
+							   Opacity="0.5"
+							Margin="0,40,0,0"
+						   HorizontalOptions="Center"
+						   TextColor="White"/>
+					</StackLayout>
+
+				</Grid>
+
+
+
+			</Grid>
+		</pancakeview:PancakeView>
+
+		<Grid Grid.Row="1" Margin="0,20,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<StackLayout Orientation="Horizontal"
+						 HorizontalOptions="Center"
+						  VerticalOptions="Start">
+				<Label Text="LOG IN"
+					   TextColor="White"
+					   FontSize="10"
+					   VerticalOptions="Center"
+					   FontAttributes="Bold"/>
+
+				<Label FontFamily="{StaticResource MaterialFontFamily}"
+					   Text="{x:Static icon:IconFont.ArrowRight}"
+					   VerticalOptions="Center"
+					    FontSize="20"
+					   TextColor="White"/>
+
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding LoginCommand}"/>
+				</StackLayout.GestureRecognizers>
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal"
+						 Grid.Column="1"
+						 HorizontalOptions="Center"
+						 VerticalOptions="Start">
+				<Label Text="NEW"
+					   TextColor="White"
+					   FontSize="10"
+					   VerticalOptions="Center"
+					   FontAttributes="Bold"/>
+
+				<Label FontFamily="{StaticResource MaterialFontFamily}"
+					   Text="{x:Static icon:IconFont.Plus}"
+					   FontSize="20"
+					   VerticalOptions="Center"
+					   TextColor="White"/>
+			</StackLayout>
+		</Grid>
+	</Grid>
+
+
+
+</ContentPage>
